@@ -8,43 +8,41 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 public class ExtentReportManager implements ITestListener {
-    public static ExtentReports extent;
-    public static ExtentTest test;
-
-    public static ExtentReports initReport() {
-        ExtentSparkReporter reporter = new ExtentSparkReporter(System.getProperty("user.dir") + "/reports/ExtentReport.html");
-        reporter.config().setReportName("Opencart Hybrid Automation Results");
-        reporter.config().setDocumentTitle("Test Execution Report");
-
-        extent = new ExtentReports();
-        extent.attachReporter(reporter);
-        extent.setSystemInfo("Tester", "Automation Engineer");
-        return extent;
-    }
+    public ExtentSparkReporter sparkReporter;
+    public ExtentReports extent;
+    public static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
     @Override
     public void onStart(ITestContext context) {
-        initReport();
+        sparkReporter = new ExtentSparkReporter(System.getProperty("user.dir") + "/reports/myReport.html");
+        sparkReporter.config().setDocumentTitle("Opencart Automation Report");
+        sparkReporter.config().setReportName("Functional and API Testing");
+
+        extent = new ExtentReports();
+        extent.attachReporter(sparkReporter);
+        extent.setSystemInfo("Application", "Opencart");
+        extent.setSystemInfo("Tester", "Tester");
     }
 
     @Override
     public void onTestStart(ITestResult result) {
-        test = extent.createTest(result.getMethod().getMethodName());
+        ExtentTest test = extent.createTest(result.getMethod().getMethodName());
+        extentTest.set(test);
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        test.pass("Test Passed");
+        extentTest.get().pass("Test Passed");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        test.fail(result.getThrowable());
+        extentTest.get().fail(result.getThrowable());
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        test.skip("Test Skipped");
+        extentTest.get().skip("Test Skipped");
     }
 
     @Override

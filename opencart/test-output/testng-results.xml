@@ -2,23 +2,15 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-09-14T02:37:46 IST" name="Suite" finished-at="2026-09-14T02:37:50 IST" duration-ms="4736">
+  <suite started-at="2026-09-14T03:27:38 IST" name="Suite" finished-at="2026-09-14T03:27:39 IST" duration-ms="1268">
     <groups>
     </groups>
-    <test started-at="2026-09-14T02:37:46 IST" name="Test" finished-at="2026-09-14T02:37:50 IST" duration-ms="4736">
+    <test started-at="2026-09-14T03:27:38 IST" name="Test" finished-at="2026-09-14T03:27:39 IST" duration-ms="1268">
       <class name="com.opencart.tests.HybridTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.opencart.tests.HybridTest@20ce78ec]" started-at="2026-09-14T02:37:46 IST" name="setUp" finished-at="2026-09-14T02:37:49 IST" duration-ms="3464" status="PASS">
+        <test-method signature="verifyHybridFlow()[pri:0, instance:com.opencart.tests.HybridTest@7ed7259e]" started-at="2026-09-14T03:27:38 IST" name="verifyHybridFlow" finished-at="2026-09-14T03:27:39 IST" duration-ms="1159" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="verifyHybridWorkflow()[pri:0, instance:com.opencart.tests.HybridTest@20ce78ec]" started-at="2026-09-14T02:37:49 IST" name="verifyHybridWorkflow" finished-at="2026-09-14T02:37:50 IST" duration-ms="1070" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyHybridWorkflow -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.opencart.tests.HybridTest@20ce78ec]" started-at="2026-09-14T02:37:50 IST" name="tearDown" finished-at="2026-09-14T02:37:50 IST" duration-ms="94" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
+        </test-method> <!-- verifyHybridFlow -->
       </class> <!-- com.opencart.tests.HybridTest -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
